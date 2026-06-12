@@ -13,6 +13,9 @@ function displayVerse() {
     document.getElementById('verseReference').textContent = verse.reference;
     document.getElementById('encouragement').textContent = verse.encouragement;
     
+    // Draw illustration
+    drawIllustration(currentVerseIndex);
+    
     // Update progress
     updateProgress();
     
@@ -50,7 +53,7 @@ function updateProgress() {
         `Verse ${currentVerseIndex + 1} of ${verses.length}`;
 }
 
-// Text-to-speech functionality
+// Text-to-speech functionality with child voice
 function speakVerse() {
     const verse = verses[currentVerseIndex];
     const textToSpeak = `${verse.text}. ${verse.reference}`;
@@ -61,14 +64,33 @@ function speakVerse() {
     // Create utterance
     const utterance = new SpeechSynthesisUtterance(textToSpeak);
     
-    // Configure speech
-    utterance.rate = 0.8; // Slower speech for better comprehension
-    utterance.pitch = 1;
+    // Configure speech for child voice
+    utterance.rate = 0.6; // Very slow for easy comprehension
+    utterance.pitch = 1.4; // Higher pitch for child-like voice
     utterance.volume = 1;
+    
+    // Try to get available voices and select a child-friendly one
+    const voices = speechSynthesis.getVoices();
+    if (voices.length > 0) {
+        // Look for voices that might sound like a child
+        const childVoice = voices.find(voice => 
+            voice.name.includes('child') || 
+            voice.name.includes('young') ||
+            voice.name.includes('Google UK') ||
+            voice.name.includes('Google US')
+        ) || voices[0];
+        
+        utterance.voice = childVoice;
+    }
     
     // Speak
     speechSynthesis.speak(utterance);
 }
+
+// Ensure voices are loaded
+speechSynthesis.onvoiceschanged = function() {
+    // Voices are now available
+};
 
 // Keyboard navigation support
 document.addEventListener('keydown', function(event) {
