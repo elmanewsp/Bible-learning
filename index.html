@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Learning - Simple Verses</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📖 Bible Learning</h1>
+            <p class="subtitle">Learning God's Word</p>
+        </header>
+
+        <main>
+            <div class="verse-card" id="verseCard">
+                <div class="verse-content">
+                    <p class="verse-text" id="verseText"></p>
+                    <p class="verse-reference" id="verseReference"></p>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button class="btn btn-prev" id="prevBtn" onclick="previousVerse()">← Previous</button>
+                <button class="btn btn-audio" id="audioBtn" onclick="speakVerse()">🔊 Read Aloud</button>
+                <button class="btn btn-next" id="nextBtn" onclick="nextVerse()">Next →</button>
+            </div>
+
+            <div class="progress">
+                <p id="progressText"></p>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+
+            <div class="encouragement" id="encouragement"></div>
+        </main>
+
+        <footer>
+            <p>Keep practicing! You're doing great! 🌟</p>
+        </footer>
+    </div>
+
+    <script src="verses.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
