@@ -3,30 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bible Learning - Simple Verses</title>
+    <title>Bible Learning Adventure</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>📖 Bible Learning</h1>
-            <p class="subtitle">Learning God's Word</p>
+            <h1>📖 Bible Learning Adventure</h1>
+            <p class="subtitle">Learn God's Word with Fun!</p>
         </header>
 
         <main>
-            <div class="verse-card" id="verseCard">
+            <!-- Illustration Container - TRANSPARENT Background -->
+            <div class="illustration-container">
+                <svg class="verse-illustration" viewBox="0 0 400 300" id="verseSvg"></svg>
+            </div>
+
+            <!-- Verse Card with Word Highlighting -->
+            <div class="verse-card">
                 <div class="verse-content">
                     <p class="verse-text" id="verseText"></p>
                     <p class="verse-reference" id="verseReference"></p>
                 </div>
             </div>
 
+            <!-- Controls -->
             <div class="controls">
-                <button class="btn btn-prev" id="prevBtn" onclick="previousVerse()">← Previous</button>
-                <button class="btn btn-audio" id="audioBtn" onclick="speakVerse()">🔊 Read Aloud</button>
-                <button class="btn btn-next" id="nextBtn" onclick="nextVerse()">Next →</button>
+                <button class="btn btn-prev" id="prevBtn" onclick="previousVerse()">⬅️ Previous</button>
+                <button class="btn btn-audio" id="audioBtn" onclick="speakVerse()">🎤 Read Aloud</button>
+                <button class="btn btn-next" id="nextBtn" onclick="nextVerse()">Next ➡️</button>
             </div>
 
+            <!-- Progress -->
             <div class="progress">
                 <p id="progressText"></p>
                 <div class="progress-bar">
@@ -34,15 +43,17 @@
                 </div>
             </div>
 
+            <!-- Encouragement -->
             <div class="encouragement" id="encouragement"></div>
         </main>
 
         <footer>
-            <p>Keep practicing! You're doing great! 🌟</p>
+            <p>🌟 Keep practicing! You're doing amazing! 🌟</p>
         </footer>
     </div>
 
     <script src="verses.js"></script>
+    <script src="illustrations.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
